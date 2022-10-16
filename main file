@@ -1,0 +1,190 @@
+
+
+int maxtraffic = 13;
+int lowtraffic = 12;
+
+
+void setup() {
+  // put your setup code here, to run once:
+    
+  pinMode(0, OUTPUT);
+  pinMode(1, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(9,INPUT);
+  pinMode (maxtraffic, INPUT); // sensor pin 
+  pinMode(lowtraffic ,INPUT);
+  
+}
+
+
+void loop() {
+  int time = 1000;
+  // put your main code here, to run repeatedly:
+//    digitalWrite(0, HIGH);                        // For street light
+    
+//    delay(time); 
+//    digitalWrite(0, LOW);
+    
+    //...................1ST light GREEN.......................................
+    Serial.print("1st light green");
+    digitalWrite(1, HIGH);                         // 1st red light  is low
+    digitalWrite(2, LOW);                        // 1st green light is low\                         
+    
+    digitalWrite(3, HIGH);                      // 2nd red light is high
+    digitalWrite(4, LOW);                       // 2nd green light is low
+
+
+    digitalWrite(5, HIGH);                     // 3rd red light is high
+    digitalWrite(6, LOW);                      // 3rd green light is low
+    
+
+    digitalWrite(7, LOW);                       // 4th RED  light is high
+    digitalWrite(8, HIGH);                      // 4th GREEEN light is high
+
+
+    int PIRsensor = digitalRead(9);
+
+    if(PIRsensor == 1){
+          digitalWrite(0,HIGH);
+    }else{
+      digitalWrite(0, LOW);
+    }
+     delay(time);
+
+    //...................2nd light GREEN.......................................
+    digitalWrite(1, LOW);                         // 1st red light  is low
+    digitalWrite(2, HIGH);                        // 1st green light is high\                         
+
+
+    digitalWrite(3, HIGH);                      // 2nd red light is high
+    digitalWrite(4, LOW);                       // 2nd green light is low
+
+
+    digitalWrite(5, HIGH);                     // 3rd red light is high
+    digitalWrite(6, LOW);                      // 3rd green light is low
+    
+
+    digitalWrite(7, HIGH);                       // 4th red light is high
+    digitalWrite(8, LOW);                     // 4th green light is low
+    PIRsensor = digitalRead(9);
+
+    if(PIRsensor == 1){
+          digitalWrite(0,HIGH);
+    }else{
+      digitalWrite(0, LOW);
+    }
+    delay(time); 
+    
+        
+    //...................3Rd light GREEN.......................................
+    
+    digitalWrite(1, HIGH);                         // 1st red light  is low
+    digitalWrite(2, LOW);                        // 1st green light is high\                         
+
+
+    digitalWrite(3, LOW);                      // 2nd red light is high
+    digitalWrite(4, HIGH);                       // 2nd green light is low
+
+
+    digitalWrite(5, HIGH);                     // 3rd red light is high
+    digitalWrite(6, LOW);                      // 3rd green light is low
+    
+
+    digitalWrite(7, HIGH);                       // 4th red light is high
+    digitalWrite(8, LOW);                     // 4th green light is low
+    PIRsensor = digitalRead(9);
+
+    if(PIRsensor == 1){
+          digitalWrite(0,HIGH);
+    }else{
+      digitalWrite(0, LOW);
+    }
+    delay(time); 
+     PIRsensor = digitalRead(9);
+
+    if(PIRsensor == 1){
+          digitalWrite(0,HIGH);
+    }else{
+      digitalWrite(0, LOW);
+    }
+    int hightrafficsensor = digitalRead (maxtraffic);
+    int lowtrafficsensor = digitalRead(lowtraffic);
+
+    if(lowtrafficsensor == 1){
+      Serial.print("No Traffic");
+      time = 250;
+    }else{
+      if (hightrafficsensor == 1){
+      Serial.print("Low traffic");
+      time = 1000;
+      }
+    else
+      {
+        time = 5000;
+        Serial.print("high traffic");
+     }
+    }
+    
+    
+    
+    //...................4TH light GREEN.......................................
+    digitalWrite(1, HIGH);                         // 1st red light  is low
+    digitalWrite(2, LOW);                        // 1st green light is low\                         
+    
+    digitalWrite(3, HIGH);                      // 2nd red light is high
+    digitalWrite(4, LOW);                       // 2nd green light is low
+
+
+    digitalWrite(5, LOW);                     // 3rd red light is high
+    digitalWrite(6, HIGH);                      // 3rd green light is low
+    
+
+    digitalWrite(7, HIGH);                       // 4th RED  light is high
+    digitalWrite(8, LOW);                      // 4th GREEEN light is high
+
+     PIRsensor = digitalRead(9);
+
+    if(PIRsensor == 1){
+          digitalWrite(0,HIGH);
+    }else{
+      digitalWrite(0, LOW);
+    }
+    delay(time);
+    PIRsensor = digitalRead(9);
+
+    if(PIRsensor == 1){
+          digitalWrite(0,HIGH);
+    }else{
+      digitalWrite(0, LOW);
+    }
+    time = 1000;
+
+    //...................everyt thing off.......................................
+//
+//    digitalWrite(1, LOW);                         // 1st red light  is low
+//    digitalWrite(2, LOW);                        // 1st green light is low\                         
+//    
+//    digitalWrite(3, LOW);                      // 2nd red light is high
+//    digitalWrite(4, LOW);                       // 2nd green light is low
+//
+//
+//    digitalWrite(5, LOW);                     // 3rd red light is high
+//    digitalWrite(6, LOW);                      // 3rd green light is low
+//    
+//
+//    digitalWrite(7, LOW);                       // 4th RED  light is high
+//    digitalWrite(8, LOW);                      // 4th GREEEN light is high
+
+
+
+    
+}
